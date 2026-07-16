@@ -1,0 +1,132 @@
+{
+  "name": "Dharaneesh",
+  "role": "Developer",
+  "rolePrefix": "Build",
+  "roleSuffix": "Developer",
+  "roleSubtitle": "Verb & Noun",
+  "location": "Tamil Nadu, India • GMT +5:30",
+  "tagline": "Code should feel natural.",
+  "taglineAccent": "feel",
+  "bio": "I'm a developer on a mission to turn ideas into reality through code. From building full-stack web apps with Next.js to crafting beautiful Linux desktops with Hyprland, I thrive on learning new technologies and solving real problems. Every mistake is a stepping stone to mastery, and every line of code is a chance to build something that matters.",
+  "philosophy": "Everything you do, do it with care.",
+  "githubUsername": "dharaneesh-sys",
+  "currently": {
+    "title": "The Little Things",
+    "description": "A fun little app that helps developers self-introspect about their workflow with guided prompts & personal AI insights. Built with React Native + Python backend.",
+    "status": "⚡ In progress",
+    "note": "Stay tuned for the TestFlight release."
+  },
+  "beliefs": [
+    {
+      "number": "01",
+      "title": "Clean Code is a Conversation",
+      "description": "Code is read far more often than it's written. Every variable name, every function, every comment is a message to your future self and your teammates. Write code that tells a story.",
+      "accent": "#6366f1"
+    },
+    {
+      "number": "02",
+      "title": "Build What Moves You",
+      "description": "The best work comes from genuine curiosity and passion. When you're building something that excites you, the late nights don't feel like work and the solutions come naturally.",
+      "accent": "#22c55e"
+    },
+    {
+      "number": "03",
+      "title": "Your Tools, Your Rules",
+      "description": "Understanding your environment down to the config file gives you superpowers. Your OS should bend to your will, not the other way around. Linux taught me that.",
+      "accent": "#f59e0b"
+    }
+  ],
+  "personality": [
+    { "label": "Developer", "emoji": "💻" },
+    { "label": "Linux enthusiast", "emoji": "🐧" },
+    { "label": "Neovim fanatic", "emoji": "⌨️" },
+    { "label": "Hyprland tiler", "emoji": "🖥️" },
+    { "label": "Open source believer", "emoji": "🔓" },
+    { "label": "Tea over coffee", "emoji": "🍵" },
+    { "label": "Night owl coder", "emoji": "🦉" },
+    { "label": "Keyboard nerd", "emoji": "🎹" }
+  ],
+  "whatILookFor": [
+    {
+      "title": "Impactful work",
+      "description": "Code that reaches real people and solves real problems. I want to build things that matter, not just features that ship."
+    },
+    {
+      "title": "Meaningful challenges",
+      "description": "Hard problems that teach me something new. The best growth comes from the edge of your comfort zone."
+    },
+    {
+      "title": "Great people to build with",
+      "description": "A team that cares about craft, communicates openly, and isn't afraid to say 'I don't know, let's figure it out together.'"
+    }
+  ],
+  "projects": [
+    {
+      "name": "ClutchD",
+      "context": "Full-stack workflow tool",
+      "description": "A full-stack application with backend API, frontend interface, and CLI tool for managing development workflows.",
+      "tags": ["Go", "React", "PostgreSQL"],
+      "url": "https://github.com/dharaneesh-sys/ClutchD",
+      "type": "featured"
+    },
+    {
+      "name": "CityCare",
+      "context": "Civic tech platform",
+      "description": "A civic issue reporting platform that connects citizens with local authorities for faster problem resolution.",
+      "tags": ["Next.js", "TypeScript", "PostgreSQL"],
+      "url": "https://github.com/dharaneesh-sys/citycare",
+      "type": "featured"
+    },
+    {
+      "name": "Maths Problem Solver",
+      "context": "AI-powered education",
+      "description": "An AI-powered mathematics problem solver that handles complex equations with step-by-step explanations.",
+      "tags": ["Python", "Flask", "AI"],
+      "url": "https://github.com/dharaneesh-sys/Maths-problem-solver",
+      "type": "featured"
+    },
+    {
+      "name": "Hyprland Dots",
+      "context": "Desktop configuration",
+      "description": "My personal Hyprland desktop configuration with custom themes, animations, and workflow optimizations.",
+      "tags": ["Linux", "Hyprland", "Lua", "CSS"],
+      "url": "https://github.com/dharaneesh-sys/hyprland-dots",
+      "type": "featured"
+    }
+  ],
+  "otherWork": [
+    {
+      "name": "Neovim Config",
+      "context": "Editor setup",
+      "description": "My battle-tested Neovim configuration — a curated IDE experience built entirely in Lua.",
+      "tags": ["Lua", "Neovim"],
+      "url": "https://github.com/dharaneesh-sys"
+    },
+    {
+      "name": "Linux Rice Scripts",
+      "context": "Automation",
+      "description": "Collection of shell scripts and dotfiles for automating Linux desktop setup and theming.",
+      "tags": ["Bash", "Linux"],
+      "url": "https://github.com/dharaneesh-sys"
+    },
+    {
+      "name": "Portfolio v2",
+      "context": "Previous iteration",
+      "description": "The predecessor to this site — built with React and Three.js featuring a 3D floating geometry background.",
+      "tags": ["React", "Three.js"],
+      "url": "https://github.com/dharaneesh-sys"
+    }
+  ],
+  "skills": [
+    { "category": "Languages", "items": ["Python", "JavaScript", "TypeScript", "C", "C++", "HTML/CSS"] },
+    { "category": "Frontend", "items": ["React", "Next.js", "Tailwind CSS"] },
+    { "category": "Backend", "items": ["Node.js", "Flask", "PostgreSQL", "REST APIs"] },
+    { "category": "Tools", "items": ["Git", "Docker", "Neovim", "Linux", "Hyprland"] }
+  ],
+  "social": {
+    "github": "https://github.com/dharaneesh-sys",
+    "email": ""
+  },
+  "aiDisclosure": "This site was made by a human with real [ambitions, flaws, hopes, desires, late-night coding sessions, bad first drafts, good refactors, tab fatigue, debug victories, learning curves, curiosity, determination, caffeinated ideas, sleep-deprived epiphanies, and a genuine desire to make the web feel a little more human,] and with some assist from an A.I. collaborator to iterate ideas and check the copy.",
+  "mobileNote": "This site is still finding its legs on mobile. I didn't want to just resize the desktop layout for smaller screens — it deserves its own thoughtful adaptation, and that's coming. In the meantime, please visit on desktop for the full experience. Otherwise, if your life needs a bit more chaos, feel free to scroll."
+}
