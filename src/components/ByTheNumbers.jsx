@@ -43,9 +43,9 @@ function AnimatedStat({ to, suffix = '', label, sublabel, duration = 1400 }) {
 
 const STATS = [
   { to: 4,    suffix: '',   label: 'shipped projects',  sublabel: 'full-stack, end-to-end',  duration: 1000 },
-  { to: 847,  suffix: '+',  label: 'GitHub commits',    sublabel: 'this year alone',          duration: 1800 },
-  { to: 12,   suffix: '',   label: 'open source PRs',   sublabel: 'merged & live',            duration: 1200 },
-  { to: 3,    suffix: 'k+', label: 'lines debugged',    sublabel: 'and counting 🙃',          duration: 1000 },
+  { to: 8,    suffix: '+',  label: 'technologies',      sublabel: 'languages & frameworks',   duration: 1200 },
+  { to: 2,    suffix: '+',  label: 'years coding',      sublabel: 'and still learning',       duration: 1000 },
+  { to: 100,  suffix: '%',  label: 'self-taught',       sublabel: 'no bootcamp, just curiosity', duration: 1200 },
 ]
 
 /* Mini bar-chart doodle */

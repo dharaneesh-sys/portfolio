@@ -30,6 +30,9 @@ function useScramble(text, delay = 300) {
 function useParallax() {
   const ref = useRef({ x: 0, y: 0 })
   useEffect(() => {
+    // Skip parallax on mobile / touch devices to save CPU
+    const isMobile = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window
+    if (isMobile) return
     const fn = (e) => {
       ref.current = {
         x: (e.clientX / window.innerWidth  - 0.5) * 2,
@@ -156,9 +159,25 @@ function CoffeeRingLeft() {
 function VinylMusicCard() {
   const [progress, setProgress] = useState(36)
   const [hovered, setHovered] = useState(false)
+  const cardRef = useRef(null)
+  const isVisible = useRef(true)
 
   useEffect(() => {
-    const t = setInterval(() => setProgress(p => (p >= 100 ? 0 : p + (hovered ? 0.3 : 0.1))), 100)
+    // Pause animation when off-screen using IntersectionObserver
+    const el = cardRef.current
+    if (!el) return
+    const io = new IntersectionObserver(([entry]) => {
+      isVisible.current = entry.isIntersecting
+    }, { threshold: 0 })
+    io.observe(el)
+    return () => io.disconnect()
+  }, [])
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      if (!isVisible.current) return
+      setProgress(p => (p >= 100 ? 0 : p + (hovered ? 0.3 : 0.1)))
+    }, 100)
     return () => clearInterval(t)
   }, [hovered])
 
@@ -167,6 +186,7 @@ function VinylMusicCard() {
 
   return (
     <div
+      ref={cardRef}
       className="vinyl-music-card hov-vinyl"
       style={{ right: '10%', top: '4%' }}
       onMouseEnter={() => setHovered(true)}
@@ -325,6 +345,9 @@ export default function Hero() {
   const rightRef = useRef(null)
 
   useEffect(() => {
+    // Skip rAF parallax loop on mobile
+    const isMobile = window.matchMedia('(max-width: 768px)').matches || 'ontouchstart' in window
+    if (isMobile) return
     let raf
     const tick = () => {
       const { x, y } = parallax.current
@@ -384,6 +407,16 @@ export default function Hero() {
         </p>
 
         <div className="canvas-meta-row">📍 {portfolioData.location}</div>
+
+        <div className="hero-actions">
+          <a href="/resume.pdf" download className="resume-btn" aria-label="Download resume">
+            <span className="resume-btn-icon">↓</span>
+            <span>Resume</span>
+          </a>
+          <a href="#connect" className="resume-btn resume-btn-outline" onClick={(e) => { e.preventDefault(); document.getElementById('connect')?.scrollIntoView({ behavior: 'smooth' }) }}>
+            <span>Let's talk</span>
+          </a>
+        </div>
 
         <div className="canvas-scroll-hint">
           <span>↓</span><span>scroll to explore</span>

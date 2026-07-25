@@ -10,13 +10,14 @@
 :root {
   --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+  --font-script: 'Pinyon Script', cursive;
 
   --bg: #fafafa;
   --bg-alt: #f2f2f2;
   --bg-card: #ffffff;
   --text: #1a1a1a;
   --text-secondary: #666666;
-  --text-muted: #999999;
+  --text-muted: #767676;
   --accent: #6366f1;
   --accent-light: #a5b4fc;
   --accent-subtle: rgba(99, 102, 241, 0.08);
@@ -29,6 +30,31 @@
   --border-radius: 12px;
   --transition: 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* --------------------------------------------------------------------------
+   Skip to Content
+   -------------------------------------------------------------------------- */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+.skip-to-content:focus {
+  top: 0;
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }
 
 /* --------------------------------------------------------------------------
@@ -310,8 +336,8 @@ p { color: var(--text-secondary); line-height: 1.7; }
 .hero-actions {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
-  margin-top: 3rem;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
 .hero-scroll {
@@ -324,6 +350,74 @@ p { color: var(--text-secondary); line-height: 1.7; }
   gap: 0.5rem;
 }
 .hero-scroll-arrow { display: inline-block; }
+
+/* Paper-styled CTAs */
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 0.6rem 1.1rem;
+  border-radius: 4px;
+  background: #f8f6f1;
+  color: var(--text);
+  border: 1px solid #d4cfc6;
+  text-decoration: none;
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04), 0 1px 0 rgba(255,255,255,0.8) inset;
+  transform: translateY(0);
+}
+.resume-btn:hover {
+  background: #f0ede6;
+  border-color: #c4bfb4;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.06), 0 1px 0 rgba(255,255,255,0.8) inset;
+  transform: translateY(-1px);
+}
+.resume-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 0 1px rgba(0,0,0,0.04);
+}
+.resume-btn-outline {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid #e0dbd3;
+  box-shadow: none;
+}
+.resume-btn-outline:hover {
+  background: #faf8f4;
+  border-color: #d4cfc6;
+  color: var(--text);
+}
+.resume-btn-icon {
+  font-size: 0.85em;
+  line-height: 1;
+  opacity: 0.6;
+}
+.chalkboard .resume-btn {
+  background: rgba(232, 230, 227, 0.06);
+  color: var(--chalk-muted);
+  border-color: rgba(232, 230, 227, 0.12);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+.chalkboard .resume-btn:hover {
+  background: rgba(232, 230, 227, 0.1);
+  border-color: rgba(232, 230, 227, 0.2);
+  color: var(--chalk-text);
+}
+.chalkboard .resume-btn-outline {
+  background: transparent;
+  color: var(--chalk-muted);
+  border-color: rgba(232, 230, 227, 0.08);
+  box-shadow: none;
+}
+.chalkboard .resume-btn-outline:hover {
+  background: rgba(232, 230, 227, 0.05);
+  border-color: rgba(232, 230, 227, 0.15);
+  color: var(--chalk-text);
+}
 
 .airdrop-trigger {
   display: inline-flex;
@@ -549,7 +643,12 @@ p { color: var(--text-secondary); line-height: 1.7; }
   pointer-events: none;
 }
 
-.stepper-dot:hover .stepper-label { opacity: 1; }
+.stepper-dot:hover .stepper-label,
+.stepper-dot .stepper-label-visible { opacity: 1; }
+.stepper-label-visible {
+  color: var(--accent);
+  font-weight: 500;
+}
 
 /* --------------------------------------------------------------------------
    4. INFINITE MARQUEE — personality cards
@@ -984,6 +1083,75 @@ p { color: var(--text-secondary); line-height: 1.7; }
 .connect-link-arrow { font-size: 0.8em; transition: transform var(--transition); }
 .connect-link:hover .connect-link-arrow { transform: translate(2px, -2px); }
 
+/* Connect rows — CSS Grid with optical alignment */
+.connect-row {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  align-items: center;
+  gap: 24px;
+  padding: 0 24px;
+  min-height: 64px;
+  border: 1px solid var(--border);
+  border-radius: var(--border-radius);
+  background: var(--bg-card);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+.connect-row:hover {
+  border-color: var(--accent-light);
+  background: var(--accent-subtle);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px var(--glow);
+}
+
+.connect-rows { margin-bottom: 2rem; }
+.connect-row-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  line-height: 1;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+.connect-row:hover .connect-row-icon {
+  background: var(--accent-subtle);
+  color: var(--accent);
+}
+.connect-row-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.connect-row-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.3;
+}
+.connect-row-desc {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.3;
+}
+.connect-row-arrow {
+  font-size: 1rem;
+  color: var(--text-muted);
+  transition: color 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
+}
+.connect-row:hover .connect-row-arrow {
+  color: var(--accent);
+  transform: translate(2px, -2px);
+}
+
 .connect-gif {
   margin-top: 2rem;
   border-radius: var(--border-radius);
@@ -1031,18 +1199,7 @@ p { color: var(--text-secondary); line-height: 1.7; }
 /* --------------------------------------------------------------------------
    13. MOBILE NOTE
    -------------------------------------------------------------------------- */
-.mobile-note {
-  padding: 2rem 0;
-  text-align: center;
-}
-
-.mobile-note-text {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  max-width: 480px;
-  margin: 0 auto;
-}
+.mobile-note { display: none; }
 
 /* --------------------------------------------------------------------------
    14. FOOTER
@@ -3691,50 +3848,7 @@ body { overflow-x: hidden; }
   line-height: 1.7;
 }
 
-.connect-rows { margin-bottom: 2rem; }
-.connect-row {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1.25rem 0;
-  border-bottom: 1px solid var(--border);
-  text-decoration: none;
-  color: inherit;
-  transition: opacity 0.18s ease;
-}
-.connect-row:first-child { border-top: 1px solid var(--border); }
-.connect-row:hover { opacity: 0.75; }
-.connect-row:hover .connect-row-arrow { transform: translate(3px, -3px); }
 
-.connect-row-icon {
-  width: 36px; height: 36px;
-  background: var(--bg-alt);
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 14px;
-  flex-shrink: 0;
-}
-.connect-row-label {
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text);
-  flex: 0 0 auto;
-  min-width: 100px;
-}
-.connect-row-desc {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  flex: 1;
-}
-.connect-row-arrow {
-  font-size: 1.1rem;
-  color: var(--text-muted);
-  transition: transform 0.2s ease;
-  flex-shrink: 0;
-}
 
 .connect-avail {
   display: inline-flex;
@@ -5626,4 +5740,43 @@ body { overflow-x: hidden; }
 @media (min-width: 1280px) {
   .gutter-left  { right: calc(100% + 40px); }
   .gutter-right { left:  calc(100% + 40px); }
+}
+
+/* ==========================================================================
+   MOBILE RESPONSIVE — 768px breakpoint
+   ========================================================================== */
+@media (max-width: 768px) {
+  :root { --section-gap: 4rem; }
+  .page { padding: 0 1.25rem; }
+  .scroll-stepper { display: none; }
+  .hero { min-height: 85vh; padding: 4rem 0 3rem; }
+  .canvas-left-zone, .canvas-right-zone { display: none; }
+  .annot-toolbar, .canvas-bottom-row { display: none; }
+  .gutter-deco { display: none; }
+  .connect-plane, .connect-envelope, .about-polaroid, .about-coffee-ring,
+  .belief-decos, .philosophy-decos, .philosophy-stamp, .philosophy-quote-mark,
+  .current-corner-deco, .current-wip-badge, .currently-wip-badge,
+  .wilf-star-sticker, .wilf-scribble-arrow, .btn-sticky-note, .btn-mini-chart,
+  .btn-scribble, .about-hand-underline { display: none !important; }
+  .beliefs-header { padding: 3rem 1.25rem 2rem; }
+  .stat-grid { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .about-skills-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+  .philosophy-section { padding: 3rem 0; }
+  .philosophy-ruled-lines, .philosophy-cursor { display: none; }
+  .section-label { margin-bottom: 1.25rem; }
+}
+@media (max-width: 480px) {
+  .page { padding: 0 1rem; }
+  .hero { min-height: 80vh; padding: 3rem 0 2rem; }
+  .stat-grid { grid-template-columns: 1fr; gap: 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .hero-letter { opacity: 1; transform: none; }
+  .beliefs-track { transition: none; }
+  .marquee-container { animation: none; }
 }

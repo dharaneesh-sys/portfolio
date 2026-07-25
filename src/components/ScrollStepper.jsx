@@ -4,9 +4,11 @@ const SECTIONS = [
   { id: 'hero', label: 'Start' },
   { id: 'beliefs', label: 'Beliefs' },
   { id: 'currently', label: 'Now' },
+  { id: 'by-the-numbers', label: 'Numbers' },
   { id: 'projects', label: 'Work' },
   { id: 'philosophy', label: 'Philosophy' },
   { id: 'about', label: 'About' },
+  { id: 'what-i-look-for', label: 'Looking For' },
   { id: 'connect', label: 'Connect' },
 ]
 
@@ -51,7 +53,7 @@ export default function ScrollStepper() {
           aria-label={`Go to ${section.label}`}
           title={section.label}
         >
-          <span className="stepper-label">{section.label}</span>
+          <span className={`stepper-label ${i === activeIndex ? 'stepper-label-visible' : ''}`}>{section.label}</span>
         </button>
       ))}
     </nav>

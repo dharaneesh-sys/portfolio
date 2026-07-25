@@ -54,7 +54,7 @@ export default function App() {
       <CustomCursor />
       <ScrollProgress />
 
-      <div className="page">
+      <div className="page" id="main-content">
         <ScrollStepper />
         <Hero />
         <hr className="section-sep" />

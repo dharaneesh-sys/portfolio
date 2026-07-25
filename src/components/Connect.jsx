@@ -1,9 +1,9 @@
 import portfolioData from '../data/portfolio.json'
 import AIDisclosure from './AIDisclosure'
-import MobileNote from './MobileNote'
 import { FairyLights } from './SideDecorations'
 
 const LINKS = [
+  { label: 'Resume',      href: '/resume.pdf', download: true, desc: 'Download PDF',       icon: '↓' },
   { label: 'GitHub',      href: portfolioData.social.github, desc: 'See the code',       icon: '⌥' },
   { label: 'All Projects', href: `https://github.com/${portfolioData.githubUsername}?tab=repositories`, desc: 'Browse repositories', icon: '◈' },
   ...(portfolioData.social.email ? [{
@@ -87,14 +87,17 @@ export default function Connect() {
             <a
               key={i}
               href={link.href}
+              download={link.download || undefined}
               target={link.href.startsWith('mailto') ? undefined : '_blank'}
               rel="noopener noreferrer"
               className="connect-row"
               style={{ transitionDelay: `${i * 0.07}s` }}
             >
               <span className="connect-row-icon">{link.icon}</span>
-              <span className="connect-row-label">{link.label}</span>
-              <span className="connect-row-desc">{link.desc}</span>
+              <span className="connect-row-text">
+                <span className="connect-row-label">{link.label}</span>
+                <span className="connect-row-desc">{link.desc}</span>
+              </span>
               <span className="connect-row-arrow">↗</span>
             </a>
           ))}
@@ -109,7 +112,6 @@ export default function Connect() {
       </section>
 
       <AIDisclosure />
-      <MobileNote />
 
       <footer className="footer">
         <p className="footer-text">
